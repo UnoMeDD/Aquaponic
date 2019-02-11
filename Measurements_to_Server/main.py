@@ -5,6 +5,8 @@ import requests
 from pymongo import MongoClient
 
 client = MongoClient('localhost:27017')
+adress = open("url.txt", "r")
+url = adress.read()
 
 db = client.SensorMeasurements
 
@@ -28,7 +30,7 @@ while True:
             collection = {'timestamp' : currentTimeStampEpoch,
                           'value': measurementValue}
             try:
-                res = requests.post('http://localhost:3000/temperature', json=collection)
+                res = requests.post('+url+temperature', json=collection)
                 res.json()
             except:
                 print "connection failed"
@@ -44,7 +46,7 @@ while True:
             collection = {'timestamp' : currentTimeStampEpoch,
                           'value': measurementValue}
             try:
-                res = requests.post('http://localhost:3000/ph', json=collection)
+                res = requests.post('+url+ph', json=collection)
                 res.json()
             except:
                 print "connection failed"
@@ -60,7 +62,7 @@ while True:
             collection = {'timestamp' : currentTimeStampEpoch,
                           'value': measurementValue}
             try:
-                res = requests.post('http://localhost:3000/waterLevel', json=collection)
+                res = requests.post('+url+waterLevel', json=collection)
                 res.json()
             except:
                 print "connection failed"
@@ -76,7 +78,7 @@ while True:
             collection = {'timestamp' : currentTimeStampEpoch,
                           'value': measurementValue}
             try:
-                res = requests.post('http://localhost:3000/ambientTemp', json=collection)
+                res = requests.post('+url+ambientTemp', json=collection)
                 res.json()
             except:
                 print "connection failed"
@@ -92,7 +94,7 @@ while True:
             collection = {'timestamp' : currentTimeStampEpoch,
                           'value': measurementValue}
             try:
-                res = requests.post('http://localhost:3000/ic', json=collection)
+                res = requests.post('+url+ic', json=collection)
                 res.json()
             except:
                 print "connection failed"
@@ -108,7 +110,7 @@ while True:
             collection = {'timestamp' : currentTimeStampEpoch,
                           'value': measurementValue}
             try:
-                res = requests.post('http://localhost:3000/waterPump', json=collection)
+                res = requests.post('+url+waterPump', json=collection)
                 res.json()
             except:
                 print "connection failed"
@@ -124,7 +126,7 @@ while True:
             collection = {'timestamp' : currentTimeStampEpoch,
                           'value': measurementValue}
             try:
-                res = requests.post('http://localhost:3000/dosingPump', json=collection)
+                res = requests.post('+url+dosingPump', json=collection)
                 res.json()
             except:
                 print "connection failed"
@@ -140,7 +142,7 @@ while True:
             collection = {'timestamp' : currentTimeStampEpoch,
                           'value': measurementValue}
             try:
-                res = requests.post('http://localhost:3000/servoActions', json=collection)
+                res = requests.post('+url+servoActions', json=collection)
                 res.json()
             except:
                 print "connection failed"

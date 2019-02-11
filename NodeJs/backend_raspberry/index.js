@@ -6,8 +6,8 @@ const port = 3000
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 
-db.on('error', console.error.bind(console, 'connection error:')); // Error for connection problems
-db.once('open', function callback () {
+MongoClient.on('error', console.error.bind(console, 'connection error:')); // Error for connection problems
+MongoClient.once('open', function callback () {
     console.log('Conntected To Mongo Database');
 })
 
