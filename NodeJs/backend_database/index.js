@@ -38,15 +38,30 @@ var icMeasurementSchema = new Schema({ // MongoDB Schema for the pH Database
     value: Number
 }, {collection: 'ic_measurements'})
 
+var waterPumpSchema = new Schema({ // MongoDB Schema for the pH Database
+    timestamp: Number,
+    value: Number
+}, {collection: 'waterPump'})
+
+var dosingPumpSchema = new Schema({ // MongoDB Schema for the pH Database
+    timestamp: Number,
+    value: Number
+}, {collection: 'dosingPump'})
+
+var servoActionsSchema = new Schema({ // MongoDB Schema for the pH Database
+    timestamp: Number,
+    value: Number
+}, {collection: 'servoActions'})
+
 
 var TemperatureMeasurementModel = mongoose.model('TemperatureMeasurement', temperatureMeasurementSchema) 
 var pHMeasurementModel = mongoose.model('pHMeasurements', phMeasurementSchema)// variable for the MongoDB Database Model
 var waterLevelModel = mongoose.model('waterLevel', waterLevelSchema)
 var ambientTemperatureModel = mongoose.model('ambientTemperature', ambientTemperatureSchema)
 var icMeasurementModel = mongoose.model('ic_measurements', icMeasurementSchema)
-var waterPump = mongoose.model('waterPump', waterLevelSchema)
-var dosingPumpModel = mongoose.model('dosingPump', ambientTemperatureSchema)
-var servoActionsModel = mongoose.model('servoActions', icMeasurementSchema)
+var waterPumpModel = mongoose.model('waterPump', waterPumpSchema)
+var dosingPumpModel = mongoose.model('dosingPump', dosingPumpSchema)
+var servoActionsModel = mongoose.model('servoActions', servoActionsSchema)
 
 
 app.use(function(req, res, next) {
@@ -199,7 +214,7 @@ app.get('/waterPump', (req, res) => {
         endtimeStamp = currentTimeStamp - (24 * 60 * 60 * 3)
     }
 
-    waterPump.find({ 
+    waterPumpModel.find({ 
         "timestamp" : { //Searches for timestamp in the TemperatureMeasurement Model
             $lt: new Date(), 
             $gte: new Date(endtimeStamp)}

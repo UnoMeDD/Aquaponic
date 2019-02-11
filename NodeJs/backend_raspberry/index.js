@@ -1,5 +1,4 @@
 const express = require('express') // import express
-const mongoose = require('mongoose') // Import mongoose for MongoDB
 const app = express()
 const bodyParser = require("body-parser");
 const port = 3000
@@ -28,16 +27,27 @@ app.post('/temperature',function(req,res){
             if (err) throw err;
             console.log("1 document inserted");
         db.close();
+                });
         });
-    });
     console.log("timestamp = "+timestamp+", value "+value);
-
     res.end("yes");
 });
 
 app.post('/ph',function(req,res){
     var timestamp=req.body.timestamp;
     var value=req.body.value;
+
+        MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
+                var dbo = db.db("SensorMeasurements")
+                myObj = {timestamp : timestamp_,
+                        value: value_}
+                dbo.collection(ph_measurements).insertOne(myObj, function(err, res) {
+            if (err) throw err;
+            console.log("1 document inserted");
+        db.close();
+                });
+        });
     console.log("timestamp = "+timestamp+", value "+value);
     res.end("yes");
 });
@@ -45,6 +55,18 @@ app.post('/ph',function(req,res){
 app.post('/waterLevel',function(req,res){
     var timestamp=req.body.timestamp;
     var value=req.body.value;
+
+        MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
+                var dbo = db.db("SensorMeasurements")
+                myObj = {timestamp : timestamp_,
+                        value: value_}
+                dbo.collection(waterLevel).insertOne(myObj, function(err, res) {
+            if (err) throw err;
+            console.log("1 document inserted");
+        db.close();
+                });
+        });
     console.log("timestamp = "+timestamp+", value "+value);
     res.end("yes");
 });
@@ -52,6 +74,18 @@ app.post('/waterLevel',function(req,res){
 app.post('/ambientTemp',function(req,res){
     var timestamp=req.body.timestamp;
     var value=req.body.value;
+
+        MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
+                var dbo = db.db("SensorMeasurements")
+                myObj = {timestamp : timestamp_,
+                        value: value_}
+                dbo.collection(ambientTemperature).insertOne(myObj, function(err, res) {
+            if (err) throw err;
+            console.log("1 document inserted");
+        db.close();
+                });
+        });
     console.log("timestamp = "+timestamp+", value "+value);
     res.end("yes");
 });
@@ -59,6 +93,18 @@ app.post('/ambientTemp',function(req,res){
 app.post('/ic',function(req,res){
     var timestamp=req.body.timestamp;
     var value=req.body.value;
+
+        MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
+                var dbo = db.db("SensorMeasurements")
+                myObj = {timestamp : timestamp_,
+                        value: value_}
+                dbo.collection(ic_measurements).insertOne(myObj, function(err, res) {
+            if (err) throw err;
+            console.log("1 document inserted");
+        db.close();
+                });
+        });
     console.log("timestamp = "+timestamp+", value "+value);
     res.end("yes");
 });
@@ -66,6 +112,18 @@ app.post('/ic',function(req,res){
 app.post('/waterPump',function(req,res){
     var timestamp=req.body.timestamp;
     var value=req.body.value;
+
+        MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
+                var dbo = db.db("SensorMeasurements")
+                myObj = {timestamp : timestamp_,
+                        value: value_}
+                dbo.collection(waterPump).insertOne(myObj, function(err, res) {
+            if (err) throw err;
+            console.log("1 document inserted");
+        db.close();
+                });
+        });
     console.log("timestamp = "+timestamp+", value "+value);
     res.end("yes");
 });
@@ -73,6 +131,18 @@ app.post('/waterPump',function(req,res){
 app.post('/dosingPump',function(req,res){
     var timestamp=req.body.timestamp;
     var value=req.body.value;
+
+        MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
+                var dbo = db.db("SensorMeasurements")
+                myObj = {timestamp : timestamp_,
+                        value: value_}
+                dbo.collection(dosingPump).insertOne(myObj, function(err, res) {
+            if (err) throw err;
+            console.log("1 document inserted");
+        db.close();
+                });
+        });
     console.log("timestamp = "+timestamp+", value "+value);
     res.end("yes");
 });
@@ -80,6 +150,18 @@ app.post('/dosingPump',function(req,res){
 app.post('/servoActions',function(req,res){
     var timestamp=req.body.timestamp;
     var value=req.body.value;
+
+        MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
+                var dbo = db.db("SensorMeasurements")
+                myObj = {timestamp : timestamp_,
+                        value: value_}
+                dbo.collection(servoActions).insertOne(myObj, function(err, res) {
+            if (err) throw err;
+            console.log("1 document inserted");
+        db.close();
+                });
+        });
     console.log("timestamp = "+timestamp+", value "+value);
     res.end("yes");
 });
