@@ -14,4 +14,4 @@ To accomplish this goal we created a web application that runs on our webserver 
 
 
 
-![alt text](https://github.com/UnoMeDD/Aquaponic/blob/feature/duda/Backend/FunctionDiagram.png)
+![alt text](https://github.com/UnoMeDD/Aquaponic/blob/master/FunctionDiagram.png)
